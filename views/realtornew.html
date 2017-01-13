@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{title}}</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+        <!-- jQuery -->
+        <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"> -->
+
+        <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+        <!-- <script src="public/scripts/jquery.js"></script> -->
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style media="screen">
+@font-face {
+  font-family: ecuyer;
+src: url('css/EcuyerR.TTF');
+}
+site-heading{
+  font-family: ecuyer;
+}
+.textgrey{
+  background-color: #d3d3d3;
+}
+.sectionlink{
+  text-align: center;
+  padding-top: 5%;
+}
+.greybackground{
+  background-color: #d3d3d3;
+  border: 1px black;
+}
+h6 {
+font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-weight: 800;
+}
+a {
+color: #333333;
+}
+a:hover,
+a:focus {
+color: #0085A1;
+}
+a img:hover,
+a img:focus {
+cursor: zoom-in;
+}
+blockquote {
+color: #777777;
+font-style: italic;
+}
+hr.small {
+max-width: 100px;
+margin: 15px auto;
+border-width: 4px;
+border-color: white;
+}
+.navbar-custom {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 3;
+font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.navbar-custom .navbar-brand {
+font-weight: 800;
+}
+.navbar-custom .navbar-header .navbar-toggle {
+color: #777777;
+font-weight: 800;
+text-transform: uppercase;
+font-size: 12px;
+}
+.navbar-custom .nav li a {
+text-transform: uppercase;
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 1px;
+}
+@media only screen and (min-width: 768px) {
+.navbar-custom {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+.navbar-custom .navbar-brand {
+  color: white;
+  padding: 20px;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+  color: rgba(255, 255, 255, 0.8);
+}
+.navbar-custom .nav li a {
+  color: white;
+  padding: 20px;
+}
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li a:focus {
+  color: rgba(255, 255, 255, 0.8);
+}
+}
+@media only screen and (min-width: 1170px) {
+.navbar-custom {
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.navbar-custom.is-fixed {
+  /* when the user scrolls down, we hide the header right above the viewport */
+  position: fixed;
+  top: -61px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #f2f2f2;
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+}
+.navbar-custom.is-fixed .navbar-brand {
+  color: #333333;
+}
+.navbar-custom.is-fixed .navbar-brand:hover,
+.navbar-custom.is-fixed .navbar-brand:focus {
+  color: #0085A1;
+}
+.navbar-custom.is-fixed .nav li a {
+  color: #333333;
+}
+.navbar-custom.is-fixed .nav li a:hover,
+.navbar-custom.is-fixed .nav li a:focus {
+  color: #0085A1;
+}
+.navbar-custom.is-visible {
+  /* if the user changes the scrolling direction, we show the header */
+  -webkit-transform: translate3d(0, 100%, 0);
+  -moz-transform: translate3d(0, 100%, 0);
+  -ms-transform: translate3d(0, 100%, 0);
+  -o-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+}
+.intro-header {
+background-color: #777777;
+background: no-repeat center center;
+background-attachment: scroll;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+background-size: cover;
+-o-background-size: cover;
+margin-bottom: 50px;
+}
+.intro-header .site-heading,
+.intro-header .post-heading,
+.intro-header .page-heading {
+padding: 100px 0 50px;
+color: black;
+}
+@media only screen and (min-width: 768px) {
+.intro-header .site-heading,
+.intro-header .post-heading,
+.intro-header .page-heading {
+  padding: 150px 0;
+}
+}
+.intro-header .site-heading,
+.intro-header .page-heading {
+text-align: center;
+}
+.intro-header .site-heading h1,
+.intro-header .page-heading h1 {
+margin-top: 0;
+font-size: 50px;
+}
+.intro-header .site-heading .subheading,
+.intro-header .page-heading .subheading {
+font-size: 24px;
+line-height: 1.1;
+display: block;
+font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-weight: 300;
+margin: 10px 0 0;
+}
+@media only screen and (min-width: 768px) {
+.intro-header .site-heading h1,
+.intro-header .page-heading h1 {
+  font-size: 80px;
+}
+}
+.intro-header .post-heading h1 {
+font-size: 35px;
+}
+.intro-header .post-heading .subheading,
+.intro-header .post-heading .meta {
+line-height: 1.1;
+display: block;
+}
+.intro-header .post-heading .subheading {
+font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 24px;
+margin: 10px 0 30px;
+font-weight: 600;
+}
+.intro-header .post-heading .meta {
+font-family: 'Lora', 'Times New Roman', serif;
+font-style: italic;
+font-weight: 300;
+font-size: 20px;
+}
+.intro-header .post-heading .meta a {
+color: white;
+}
+@media only screen and (min-width: 768px) {
+.intro-header .post-heading h1 {
+  font-size: 55px;
+}
+.intro-header .post-heading .subheading {
+  font-size: 30px;
+}
+}
+
+    .sectioncontainer{
+      padding-top:  50px;
+      padding-bottom: 20px;
+      padding-right: 10%;
+      padding-left: 10%;
+      /*background-color: #e1e1e1;*/
+    }
+    .missionstatement{
+      padding-left: 10%;
+      padding-right: 10%;
+      text-align:center;
+      padding-bottom: 40px;
+    }
+
+
+    .homecontainer{
+      padding-right: 5%;
+padding-left: 5%;
+margin-right: auto;
+margin-left: auto;
+}
+.thumbnail {
+position: relative;
+/*box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5);*/
+transform: scale(1);
+/*border: 0;*/
+transition: 0.4s ease;
+z-index: 13; }
+.thumbnail:hover {
+position: relative;
+box-shadow: 10px 10px  rgba(50,50,50, 0.5);
+/*  box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5);*/
+transform: scale(1.25);
+/*border: 0;*/
+z-index: 15; }
+.sections img{
+position: relative;
+/*box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5);*/
+transform: scale(1);
+/*border: 0;*/
+transition: 0.4s ease;
+z-index: 13; }
+.sections img:hover {
+position: relative;
+/*box-shadow: 10px 10px  rgba(50,50,50, 0.5);*/
+/*  box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5);*/
+transform: scale(1.2);
+/*border: 0;*/
+z-index: 15; }
+
+
+
+ .howworks{
+     padding-top:  50px;
+     padding-bottom: 50px;
+     padding-right: 10%;
+     padding-left: 10%;
+     background-color: transparent;
+ }
+ div.box {
+   /*border-radius: 3px;*/
+   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+   padding: 25px 25px;/*padding: 10px 25px; */
+   display: inline-block;
+   margin-top: 60px;
+   /*background-color:#fff;*/
+   width:16%;
+   height: 16%;
+   background-image: url('images/buy.png');
+   background-size: cover;
+ }
+ .footer-distributed{
+ 	background-color: #292c2f;
+ 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+ 	box-sizing: border-box;
+ 	width: 100%;
+ 	text-align: left;
+ 	font: bold 16px sans-serif;
+
+ 	padding: 55px 50px;
+ 	/*margin-top: 80px;*/
+ }
+
+ .footer-distributed .footer-left,
+ .footer-distributed .footer-center,
+ .footer-distributed .footer-right{
+ 	display: inline-block;
+ 	vertical-align: top;
+ }
+
+ /* Footer left */
+
+ .footer-distributed .footer-left{
+ 	width: 40%;
+ }
+
+ /* The company logo */
+
+ .footer-distributed h3{
+ 	color:  #ffffff;
+ 	font: normal 36px 'Cookie', cursive;
+ 	margin: 0;
+ }
+
+ .footer-distributed h3 span{
+ 	color:  #5383d3;
+ }
+
+ /* Footer links */
+
+ .footer-distributed .footer-links{
+ 	color:  #ffffff;
+ 	margin: 20px 0 12px;
+ 	padding: 0;
+ }
+
+ .footer-distributed .footer-links a{
+ 	display:inline-block;
+ 	line-height: 1.8;
+ 	text-decoration: none;
+ 	color:  inherit;
+ }
+
+ .footer-distributed .footer-company-name{
+ 	color:  #8f9296;
+ 	font-size: 14px;
+ 	font-weight: normal;
+ 	margin: 0;
+ }
+
+ /* Footer Center */
+
+ .footer-distributed .footer-center{
+ 	width: 35%;
+ }
+
+ .footer-distributed .footer-center i{
+ 	background-color:  #33383b;
+ 	color: #ffffff;
+ 	font-size: 25px;
+ 	width: 38px;
+ 	height: 38px;
+ 	border-radius: 50%;
+ 	text-align: center;
+ 	line-height: 42px;
+ 	margin: 10px 15px;
+ 	vertical-align: middle;
+ }
+
+ .footer-distributed .footer-center i.fa-envelope{
+ 	font-size: 17px;
+ 	line-height: 38px;
+ }
+
+ .footer-distributed .footer-center p{
+ 	display: inline-block;
+ 	color: #ffffff;
+ 	vertical-align: middle;
+ 	margin:0;
+ }
+
+ .footer-distributed .footer-center p span{
+ 	display:block;
+ 	font-weight: normal;
+ 	font-size:14px;
+ 	line-height:2;
+ }
+
+ .footer-distributed .footer-center p a{
+ 	color:  #5383d3;
+ 	text-decoration: none;;
+ }
+
+
+ /* Footer Right */
+
+ .footer-distributed .footer-right{
+ 	width: 20%;
+ }
+
+ .footer-distributed .footer-company-about{
+ 	line-height: 20px;
+ 	color:  #92999f;
+ 	font-size: 13px;
+ 	font-weight: normal;
+ 	margin: 0;
+ }
+
+ .footer-distributed .footer-company-about span{
+ 	display: block;
+ 	color:  #ffffff;
+ 	font-size: 14px;
+ 	font-weight: bold;
+ 	margin-bottom: 20px;
+ }
+
+ .footer-distributed .footer-icons{
+ 	margin-top: 25px;
+ }
+
+ .footer-distributed .footer-icons a{
+ 	display: inline-block;
+ 	width: 35px;
+ 	height: 35px;
+ 	cursor: pointer;
+ 	background-color:  #33383b;
+ 	border-radius: 2px;
+
+ 	font-size: 20px;
+ 	color: #ffffff;
+ 	text-align: center;
+ 	line-height: 35px;
+
+ 	margin-right: 3px;
+ 	margin-bottom: 5px;
+ }
+
+ /* If you don't want the footer to be responsive, remove these media queries */
+
+ @media (max-width: 880px) {
+
+ 	.footer-distributed{
+ 		font: bold 14px sans-serif;
+ 	}
+
+ 	.footer-distributed .footer-left,
+ 	.footer-distributed .footer-center,
+ 	.footer-distributed .footer-right{
+ 		display: block;
+ 		width: 100%;
+ 		margin-bottom: 40px;
+ 		text-align: center;
+ 	}
+
+ 	.footer-distributed .footer-center i{
+ 		margin-left: 0;
+ 	}
+
+ }
+
+ .realtorsection{
+   padding-top:  50px;
+   padding-bottom: 50px;
+   padding-right: 10%;
+   padding-left: 10%;
+   /*background-color: #e1e1e1;*/
+   background-image: url("images/indexbuy.jpg");
+   background-size: cover;
+background-position: 50% 50%;
+background-repeat: none;
+ }
+ .qualifiedsection{
+   padding-top:  50px;
+   padding-bottom: 50px;
+   padding-right: 10%;
+   padding-left: 10%;
+   /*background-color: #fff;*/
+   background-image: url("images/indexbuild.jpeg");
+   background-size: cover;
+background-position: 50% 50%;
+background-repeat: none;
+ }
+ .prosection{
+   padding-top:  50px;
+   padding-bottom: 50px;
+   padding-right: 10%;
+   padding-left: 10%;
+   /*background-color: #e1e1e1;*/
+   background-image: url("images/fixindex.jpeg");
+   background-size: cover;
+background-position: 50% 50%;
+background-repeat: none;
+ }
+ .maincontent{
+   color: hsl(0, 0%, 2%);
+   font-size: 18px;
+   font-family: Lato, sans-serif;
+   line-height: 30px;
+ }
+ .center-block{
+   margin-top: 10%;
+ }
+ .howworkscontent{
+   font-size: 18px;
+   font-family: Lato, sans-serif;
+   line-height: 30px;
+ }
+ .extrainfo{
+   font-size: 18px;
+   font-family: Lato, sans-serif;
+   line-height: 30px;
+   text-align: center;
+ }
+ .categories{
+   font-weight: bold;
+   font-family: Lato, sans-serif;
+   text-align: center;
+ }
+
+</style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/" style="font-weight:600;">Buy Build Fix</a>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/buy">Buy/Sell</a>
+                    </li>
+                    <li>
+                        <a href="/build">Build</a>
+                    </li>
+                    <li>
+                        <a href="/fix">Fix</a>
+                    </li>
+                    <li>
+                        <a href="/realtor">Realtor</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('images/indexlanding.jpeg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1 style="font-family:ecuyer">Buy Build Fix</h1>
+                        <hr class="small">
+                        <span style="font-family:ecuyer" class="subheading">
+                          Empowering The Consumer</span>
+                         </div>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+          <form action="financing.php" method="post">
+            <legend ><h4>WANT A FREE CONSULTATION?</h4></legend>
+              <fieldset style="background-color:white;">
+
+
+                  <input name="getprequalified" value="" type="checkbox" />
+                  <label for="getprequalified">Getting Pre-Qualifies:</label><br>
+                  <input name="gethomeloan" value="" type="checkbox" />
+                  <label for="gethomeloan">Applying for a home loan:</label><br>
+                  <div class="col-md-6">
+                      <label>
+                          First Name
+                          <input type="text" name="first_name" />
+                      </label>
+                  </div>
+                  <div class="col-md-6">
+                      <label>
+                          Last Name
+                          <input type="text" name="last_name" />
+                      </label>
+                  </div>
+                  <div class="col-md-6">
+                      <label>
+                          Email
+                          <input type="text" name="email" />
+                      </label>
+                  </div>
+                  <div class="col-md-6">
+                      <label>
+                          Phone Number
+                          <input type="text" name="phone_number" />
+                      </label>
+                  </div>
+                <div class="col-md-6">
+                  <label>Preferred Contact Method:
+                    <select name="contactmethod">
+                      <option value="phone">Phone</option>
+                      <option value="text">Text</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="col-md-6">
+                  <label>Best time to chat:
+                    <select name="contacttime">
+                      <option value="morning">Morning 9AM-Noon</option>
+                      <option value="afternoon">After Noon-5pm</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="col-md-6">
+                <label>Preliminary questions and comments
+                  <textarea name="textarea"></textarea>
+                </label>
+              </div>
+              <div class="col-md-6">
+                  <a href="#" class="button" name="submit" style="text-align:center;">Submit</a>
+                </div>
+              </fieldset>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+
+
+        <div class="howworks">
+          <div class="row">
+            <div class="col-md-4" style="text-align:center;">
+
+              <!-- <img src="images/buy.png" alt="buy" /> -->
+              <h2 style="color:#fc0;"><i class="fa fa-video-camera" aria-hidden="true"></i>  EMPOWERMENT VIDEOS</h2>
+
+              <i class="x-icon-play-circle" data-x-icon="" style="color: hsl(220, 94%, 68%);background-color: hsl(48, 100%, 50%);"></i>
+
+              <p class="howworkscontent">
+                Short 3-5 minute clips that are loaded with Straightforward, Unbiased, Information that will
+                EMPOWER each viewer with fundamental information specific to each, service, or project. Knowledge
+                is Power and Time is Money! We strive to save you time by providing FREE information all at your
+                fingertips.
+               </p>
+            </div>
+            <div class="col-md-4" style="text-align:center;">
+              <!-- <img src="images/build.png" alt="build" /> -->
+              <h2 style="color:#fc0;"><i class="fa fa-book" aria-hidden="true"></i>  PDF-INFORMATION</h2>
+              <br><br>
+              <p class="howworkscontent">
+                Written insight that you can print off, mark up, and file away as a future reference. Much of the
+                PDF material is covered in the EMPOWERMENT VIDEOS, However we do realize the need for printable,
+                tangible, content that you can take with you as a reference. Gallileo said it “All Things are easy
+                to understand once they are discovered,…The point is to discover them!”
+              </p>
+            </div>
+            <div class="col-md-4" style="text-align:center;">
+              <!-- <img src="images/fix.png" alt="fix" /> -->
+              <h2 style="color:#fc0;">  <i class="fa fa-database" aria-hidden="true"></i>  BID LISTS</h2>
+                <br><br>
+              <p class="howworkscontent">
+                Step by step instructions, questions, and explinations of what to know before requesting a
+                bid from a subcontractor. It litterally line items each item, so bids are apples to apples and
+                you can know exactly what is included in the bid, and more importanly…What’s NOT! These lists are
+                specific to each category and tailored to enhance both the contractor’s and consumer’s experience.
+                When we are all on the same page…That’s the only page we need to talk about!
+              </p>
+            </div>
+          </div>
+                </div>
+
+                <!-- Portfolio Section -->
+                <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <a href="portfolio-item.html">
+                            <img  src="images/video.jpg" height="250px" width="100%">
+                            <p class="extrainfo">
+                              3-5 minute clips that empower the consumer!
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="portfolio-item.html">
+                            <img  src="images/pdfarrow.jpg" height="250px" width="100%">
+                            <p class="extrainfo">
+                              Printable content to read, mark, add to, etc.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="portfolio-item.html">
+                            <img  src="images/forumlogo.jpg" height="250px" width="100%">
+                            <p class="extrainfo">
+                              Share your experiences with others.
+                            </p>
+                        </a>
+                    </div>
+                  </div>
+                  <br><br>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <a href="portfolio-item.html">
+                            <img  src="images/eventsheader.jpg" height="250" width="100%">
+                            <p class="extrainfo">
+                              Join us at special Events throughout Utah!
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="portfolio-item.html">
+                            <img  src="images/blog1.jpg" height="250" width="100%">
+                            <p class="extrainfo">
+                            Read through “learning experiences” from other consumers.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="portfolio-item.html">
+                            <img  src="images/realtor.jpg" height="250" width="100%">
+                            <p class="extrainfo">
+                              Lists that allow you to literally be on the same page.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.container -->
+
+
+              <div class="container slideanim">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2 class="page-header">Categories</h2>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                          <a href="">
+                          <p class="categories">REALTOR</p>
+                            <img class="img-responsive customer-img" src="images/realtor.png" alt="">
+                          </a>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                          <a href="">
+                          <p class="categories">LISTINGS</p>
+                            <img class="img-responsive customer-img" src="images/location.png" alt="">
+                          </a>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                          <a href="">
+                          <p class="categories">BUY</p>
+                            <img class="img-responsive customer-img" src="images/buy.png" alt="">
+                          </a>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                          <a href="">
+                          <p class="categories">SELL</p>
+                            <img class="img-responsive customer-img" src="images/buy.png" alt="">
+                          </a>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                          <a href="">
+                          <p class="categories">BUILD</p>
+                            <img class="img-responsive customer-img" src="images/build.png" alt="">
+                          </a>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                          <a href="">
+                          <p class="categories">LENDER</p>
+                            <img class="img-responsive customer-img" src="images/lending.png" alt="">
+                          </a>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+              </div>
+
+              <br><br><br>
+
+              <footer class="footer-distributed">
+
+                <div class="footer-left">
+                  <img src="images/logo.png" width="70%" height="auto">
+                  <h3>
+                    <!-- Company<span>logo</span> -->
+                  </h3>
+
+                  <p class="footer-links">
+                    <a href="/">Home</a>
+                    ·
+                    <a href="buy">Buy</a>
+                    ·
+                    <a href="/build">Build</a>
+                    ·
+                    <a href="/fix">Fix</a>
+                    ·
+                    <a href="/about">About</a>
+                    ·
+                    <a href="/faq">Faq</a>
+                    ·
+                    <a href="/contact">Contact</a>
+                  </p>
+
+                  <p class="footer-company-name">Buy Build Fix LLC &copy; 2016</p>
+                </div>
+
+                <div class="footer-center">
+
+                  <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p>1920 West 5200 South STE #4<br> ROY, UT 84067</p>
+                  </div>
+
+                  <div>
+                    <i class="fa fa-phone"></i>
+                    <p>(435) 225-2766</p>
+                  </div>
+
+                  <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:support@company.com">tyler@buybuildfix.com</a></p>
+                  </div>
+
+                </div>
+
+                <div class="footer-right">
+
+                  <p class="footer-company-about">
+                    <span>About the company</span>
+                    Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                  </p>
+
+                  <div class="footer-icons">
+
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+
+                  </div>
+
+                </div>
+
+              </footer>
+
+
+
+      </body>
+
+      </html>
